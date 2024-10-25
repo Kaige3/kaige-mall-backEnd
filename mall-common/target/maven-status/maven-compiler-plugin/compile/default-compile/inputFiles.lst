@@ -1,0 +1,12 @@
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\AuthErrorCode.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\constants\BaseEnum.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\constants\ResultCode.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\exception\BusinessException.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\exception\SystemException.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\model\BaseRequest.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\model\BaseResponse.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\model\PageResult.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\model\R.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\validation\CreateGroup.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\validation\UpdateGroup.java
+C:\Users\15336\Desktop\kaige-box\mall-common\src\main\java\io\qifan\infrastructure\common\validation\ValidateGroup.java

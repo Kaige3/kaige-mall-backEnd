@@ -1,0 +1,22 @@
+
+input UserSpecInput {
+    #allScalars(UserSpec)
+    id?
+}
+
+specification UserSpecSpec {
+    #allScalars
+    like/i(getPassword)
+    like/i(getNickname)
+    like/i(getGender)
+    like/i(getPhone)
+    ge(getMinCreatedTime)
+    le(getMinCreatedTime)
+    ge(getMaxCreatedTime)
+    le(getMaxCreatedTime)
+    ge(getMaxEditedTime)
+    le(getMaxEditedTime)
+    ge(getMinEditedTime)
+    le(getMinEditedTime)
+    like/i(getId)
+}

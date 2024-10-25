@@ -1,0 +1,12 @@
+io\qifan\infrastructure\common\exception\SystemException.class
+io\qifan\infrastructure\common\model\BaseRequest.class
+io\qifan\infrastructure\common\AuthErrorCode.class
+io\qifan\infrastructure\common\exception\BusinessException.class
+io\qifan\infrastructure\common\model\PageResult.class
+io\qifan\infrastructure\common\validation\CreateGroup.class
+io\qifan\infrastructure\common\constants\BaseEnum.class
+io\qifan\infrastructure\common\model\BaseResponse.class
+io\qifan\infrastructure\common\validation\ValidateGroup.class
+io\qifan\infrastructure\common\validation\UpdateGroup.class
+io\qifan\infrastructure\common\constants\ResultCode.class
+io\qifan\infrastructure\common\model\R.class

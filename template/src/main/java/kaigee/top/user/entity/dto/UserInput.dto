@@ -1,0 +1,14 @@
+
+input UserInputInput {
+    #allScalars(UserInput)
+    id?
+}
+
+specification UserInputSpec {
+    #allScalars
+    like/i(getPassword)
+    like/i(getNickname)
+    like/i(getGender)
+    like/i(getPhone)
+    like/i(getId)
+}
