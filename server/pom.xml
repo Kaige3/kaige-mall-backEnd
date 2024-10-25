@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>kaigee.top</groupId>
+        <artifactId>kaige-box</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>server</artifactId>
+
+    <properties>
+        <hutool.version>5.8.25</hutool.version>
+        <sa-token.version>1.37.0</sa-token.version>
+        <jimmer.version>0.8.186</jimmer.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+
+<!--        hutoll-->
+        <dependency>
+            <artifactId>hutool-core</artifactId>
+            <groupId>cn.hutool</groupId>
+            <version>${hutool.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>kaigee.top</groupId>
+            <artifactId>mall-generator-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>kaigee.top</groupId>
+            <artifactId>mall-generator-processor</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version> <!-- 根据需要调整版本 -->
+        </dependency>
+<!--        mysql-->
+        <dependency>
+            <artifactId>mysql-connector-j</artifactId>
+            <groupId>com.mysql</groupId>
+        </dependency>
+        <!--jimmer-->
+        <dependency>
+            <artifactId>jimmer-spring-boot-starter</artifactId>
+            <groupId>org.babyfish.jimmer</groupId>
+            <version>${jimmer.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.babyfish.jimmer</groupId>
+            <!-- 用户编写的实体代码所需的依赖 -->
+            <artifactId>jimmer-core</artifactId>
+            <version>${jimmer.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.babyfish.jimmer</groupId>
+            <!-- 生成的代码所需的依赖 -->
+            <artifactId>jimmer-sql</artifactId>
+            <version>${jimmer.version}</version>
+            <!--其他项目必然导入包含此依赖-->
+            <scope>provided</scope>
+        </dependency>
+
+        <!--sa-token-->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
+            <version>${sa-token.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot3-starter</artifactId>
+            <version>${sa-token.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.binarywang</groupId>-->
+<!--            <artifactId>wx-java-miniapp-spring-boot-starter</artifactId>-->
+<!--        </dependency>-->
+
+<!--        common-->
+        <dependency>
+            <groupId>kaigee.top</groupId>
+            <artifactId>mall-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <artifactId>jimmer-apt</artifactId>
+                            <groupId>org.babyfish.jimmer</groupId>
+                            <version>${jimmer.version}</version>
+                        </path>
+                        <path>
+                            <artifactId>lombok</artifactId>
+                            <groupId>org.projectlombok</groupId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+</project>
