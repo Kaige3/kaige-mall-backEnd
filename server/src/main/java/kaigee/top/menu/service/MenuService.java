@@ -1,9 +1,11 @@
 package kaigee.top.menu.service;
 
+    import cn.dev33.satoken.stp.StpUtil;
     import io.qifan.infrastructure.common.constants.ResultCode;
     import io.qifan.infrastructure.common.exception.BusinessException;
     import kaigee.top.infrastructure.model.QueryRequest;
     import kaigee.top.menu.entity.Menu;
+    import kaigee.top.menu.entity.MenuTable;
     import kaigee.top.menu.entity.dto.MenuInput;
     import kaigee.top.menu.entity.dto.MenuSpec;
     import kaigee.top.menu.repository.MenuRepository;
@@ -38,4 +40,7 @@ public class MenuService {
         menuRepository.deleteAllById(ids);
         return true;
     }
+
+
+
 }

@@ -40,4 +40,7 @@ public class MenuController {
     public Boolean delete(@RequestBody List<String> ids) {
         return menuService.delete(ids);
     }
+
+
+
 }

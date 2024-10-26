@@ -23,9 +23,6 @@ import org.babyfish.jimmer.sql.fetcher.DtoMetadata;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Entity for table "dict"
- */
 @GeneratedBy(
         file = "<server>/src/main/dto/kaigee/top/dict/entity/Dict.dto"
 )
@@ -194,9 +191,6 @@ public class DictInput implements Input<Dict> {
         this.orderNum = orderNum;
     }
 
-    /**
-     * 是否可见
-     */
     @GenField(
             value = "是否可见",
             order = 6

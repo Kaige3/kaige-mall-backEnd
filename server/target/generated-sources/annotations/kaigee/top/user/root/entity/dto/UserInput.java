@@ -24,9 +24,6 @@ import org.babyfish.jimmer.sql.fetcher.DtoMetadata;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Entity for table "user"
- */
 @GeneratedBy(
         file = "<server>/src/main/dto/kaigee/top/user/entity/User.dto"
 )
@@ -158,9 +155,6 @@ public class UserInput implements Input<User> {
         this.password = password;
     }
 
-    /**
-     * 用户状态
-     */
     @NotNull
     public String getStatus() {
         if (status == null) {

@@ -1,7 +1,12 @@
 package kaigee.top.user.root.controller;
 import cn.dev33.satoken.annotation.SaCheckDisable;
 import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
+import io.qifan.infrastructure.common.constants.ResultCode;
+import io.qifan.infrastructure.common.exception.BusinessException;
 import kaigee.top.infrastructure.model.QueryRequest;
+import kaigee.top.menu.entity.Menu;
+import kaigee.top.menu.repository.MenuRepository;
 import kaigee.top.user.root.entity.User;
 import kaigee.top.user.root.entity.dto.UserInput;
 import kaigee.top.user.root.entity.dto.UserLoginInput;
@@ -28,6 +33,14 @@ public class UserForFrontController {
 
     private final UserService userService;
 
+    private final UserRepository userRepository;
+
+    @PostMapping("info")
+    public @FetchBy(value = "USER_ROLE_FETCHER") User getUserInfo(){
+        return userRepository.findById(StpUtil.getLoginIdAsString(),UserRepository.USER_ROLE_FETCHER)
+                .orElseThrow( ()->new BusinessException(ResultCode.NotFindError,"数据不存在"));
+    }
+
     @GetMapping("{id}")
     public @FetchBy(value = "USER_ROLE_FETCHER") User findById(@PathVariable String id) {
         return userService.findById(id);
@@ -52,4 +65,10 @@ public class UserForFrontController {
     public SaTokenInfo login(@RequestBody @Validated UserLoginInput userLoginInput){
        return userService.login(userLoginInput);
     }
+
+    @GetMapping("menus")
+    public List<@FetchBy(value = "SIMPLE_FETCHER",ownerType = MenuRepository.class) Menu>  getUserMenus(){
+        return  userService.getUserMenus();
+    }
+
 }

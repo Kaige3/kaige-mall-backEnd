@@ -7,6 +7,9 @@ package kaigee.top.user.root.service;
     import io.qifan.infrastructure.common.exception.BusinessException;
     import kaigee.top.infrastructure.model.LoginDevice;
     import kaigee.top.infrastructure.model.QueryRequest;
+    import kaigee.top.menu.entity.Menu;
+    import kaigee.top.menu.entity.MenuTable;
+    import kaigee.top.menu.repository.MenuRepository;
     import kaigee.top.user.root.entity.User;
     import kaigee.top.user.root.entity.UserDraft;
     import kaigee.top.user.root.entity.UserFetcher;
@@ -71,5 +74,20 @@ public class UserService {
                 .setDevice(LoginDevice.BROWSER)
                 .setTimeout(60 * 60 * 24 * 30 * 36));
         return StpUtil.getTokenInfo();
+    }
+
+    private final MenuRepository menuRepository;
+    public List<Menu> getUserMenus() {
+        MenuTable t = MenuTable.$;
+        // roles(RoleMenuRel) -> role(Role) -> users(UserRoleRel) -> user(User) -> id = 当前用户id
+        return menuRepository.sql()
+                .createQuery(t)
+                .where(t.roles(roleMenuRelTableEx -> roleMenuRelTableEx
+                        .role()
+                        .users(userRoleRelTableEx -> userRoleRelTableEx
+                                .user()
+                                .id()
+                                .eq(StpUtil.getLoginIdAsString()))))
+                .select(t.fetch(MenuRepository.SIMPLE_FETCHER)).execute();
     }
 }

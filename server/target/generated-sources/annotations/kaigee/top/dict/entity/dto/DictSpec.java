@@ -20,9 +20,6 @@ import org.babyfish.jimmer.sql.ast.query.specification.PredicateApplier;
 import org.babyfish.jimmer.sql.ast.query.specification.SpecificationArgs;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Entity for table "dict"
- */
 @GeneratedBy(
         file = "<server>/src/main/dto/kaigee/top/dict/entity/Dict.dto"
 )
@@ -96,9 +93,6 @@ public class DictSpec implements JSpecification<Dict, DictTable> {
         this.orderNum = orderNum;
     }
 
-    /**
-     * 是否可见
-     */
     @Nullable
     @GenField(
             value = "是否可见",

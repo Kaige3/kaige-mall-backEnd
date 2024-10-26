@@ -17,9 +17,6 @@ import org.babyfish.jimmer.internal.GeneratedBy;
 import org.babyfish.jimmer.sql.fetcher.DtoMetadata;
 import org.jetbrains.annotations.NotNull;
 
-/**
- * Entity for table "user"
- */
 @GeneratedBy(
         file = "<server>/src/main/dto/kaigee/top/user/entity/User.dto"
 )

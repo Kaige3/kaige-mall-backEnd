@@ -20,9 +20,6 @@ import org.babyfish.jimmer.sql.ast.query.specification.PredicateApplier;
 import org.babyfish.jimmer.sql.ast.query.specification.SpecificationArgs;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Entity for table "user"
- */
 @GeneratedBy(
         file = "<server>/src/main/dto/kaigee/top/user/entity/User.dto"
 )
@@ -68,9 +65,6 @@ public class UserSpec implements JSpecification<User, UserTable> {
         this.gender = gender;
     }
 
-    /**
-     * 用户状态
-     */
     @Nullable
     public String getStatus() {
         return status;
