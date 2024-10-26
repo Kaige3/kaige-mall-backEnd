@@ -1,7 +1,7 @@
 package kaigee.top.infrastructure.jimmer;
 
 //import io.qifan.mall.server.user.entity.kaigee.top.User.entity.User;
-import kaigee.top.user.entity.User;
+import kaigee.top.user.root.entity.User;
 import org.babyfish.jimmer.sql.*;
 
 @MappedSuperclass

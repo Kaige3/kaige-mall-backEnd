@@ -23,7 +23,7 @@
                 <el-input v-model="query.getNickname"></el-input>
     </el-form-item>
     <el-form-item label="性别">
-                <el-input v-model="query.getGender"></el-input>
+                <dict-select :dict-id="DictConstants.SEX" v-model="query.getGender"></dict-select>
     </el-form-item>
       <el-form-item label=" ">
         <div class="btn-wrapper">

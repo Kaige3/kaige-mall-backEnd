@@ -103,7 +103,7 @@
     </el-table-column>
     <el-table-column label="性别" prop="getGender" sortable="custom">
         <template v-slot:default="{row}:UserInputScope">
-                    {{row.getGender}}
+                    <dict-column :dict-id="DictConstants.SEX" :value="row.getGender"></dict-column>
         </template>
     </el-table-column>
             <el-table-column label="创建时间" prop="createdTime" sortable="custom">

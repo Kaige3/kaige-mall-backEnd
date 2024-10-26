@@ -19,7 +19,6 @@
         "getPassword": [{ required: true, message: '请输入密码', trigger: "blur"}],
         "getNickname": [{ required: true, message: '请输入昵称', trigger: "blur"}],
         "getAvatar": [{ required: true, message: '请输入头像', trigger: "blur"}],
-        "getGender": [{ required: true, message: '请输入性别', trigger: "blur"}],
     })
     const init = async () => {
         dialogData.value.title = '创建'
@@ -64,7 +63,7 @@
                 <image-upload v-model="createForm.getAvatar"></image-upload>
     </el-form-item>
     <el-form-item label="性别" prop="getGender">
-                <el-input v-model="createForm.getGender"></el-input>
+                <dict-select :dict-id="DictConstants.SEX" v-model="createForm.getGender"></dict-select>
     </el-form-item>
         </el-form>
         <footer-button @close="closeDialog" @confirm="handleConfirm"></footer-button>

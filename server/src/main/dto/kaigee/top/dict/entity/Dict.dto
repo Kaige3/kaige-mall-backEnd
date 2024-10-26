@@ -1,0 +1,18 @@
+export kaigee.top.dict.entity.Dict
+input DictInput {
+    #allScalars(Dict)
+    id?
+}
+
+specification DictSpec {
+    #allScalars
+    like/i(dictName)
+    like/i(keyName)
+    like/i(dictEnName)
+    like/i(keyEnName)
+    like/i(id)
+    ge(editedTime)
+    le(editedTime)
+    ge(createdTime)
+    le(createdTime)
+}

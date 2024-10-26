@@ -1,7 +1,13 @@
+export kaigee.top.user.root.entity.User
 
 input UserInput {
     #allScalars(User)
     id?
+    roleIds: Array<String>
+}
+input UserLoginInput {
+    phone
+    password
 }
 
 specification UserSpec {
@@ -11,7 +17,6 @@ specification UserSpec {
     like/i(nickname)
     like/i(avatar)
     like/i(phone)
-    like/i(gender)
     ge(createdTime)
     le(createdTime)
     ge(editedTime)
