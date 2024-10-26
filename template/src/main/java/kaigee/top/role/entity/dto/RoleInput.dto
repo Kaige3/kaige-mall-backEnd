@@ -1,0 +1,11 @@
+
+input RoleInputInput {
+    #allScalars(RoleInput)
+    id?
+}
+
+specification RoleInputSpec {
+    #allScalars
+    like/i(getName)
+    like/i(getId)
+}

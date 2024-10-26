@@ -2,6 +2,7 @@
 input RoleInput {
     #allScalars(Role)
     id?
+    menuIds: Array<String>
 }
 
 specification RoleSpec {

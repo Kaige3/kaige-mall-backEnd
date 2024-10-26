@@ -6,8 +6,9 @@ input UserInputInput {
 
 specification UserInputSpec {
     #allScalars
+    like/i(getPassword)
     like/i(getId)
     like/i(getNickname)
+    like/i(getStatus)
     like/i(getPhone)
-    like/i(getPassword)
 }

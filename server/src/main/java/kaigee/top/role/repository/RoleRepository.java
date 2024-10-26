@@ -15,6 +15,9 @@ import org.springframework.data.domain.Pageable;
 public interface RoleRepository extends JRepository<Role, String> {
     RoleTable roleTable = RoleTable.$;
     RoleFetcher COMPLEX_FETCHER = RoleFetcher.$.allScalarFields();
+    RoleFetcher ROLE_MENU_FETCHER = RoleFetcher.$.allScalarFields().menusView(true);
+
+
 
     default Page<Role> findPage(QueryRequest<RoleSpec> queryRequest, Fetcher<Role> fetcher) {
         RoleSpec query = queryRequest.getQuery();

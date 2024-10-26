@@ -4,6 +4,8 @@ import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.function.Function;
 import kaigee.top.infrastructure.jimmer.BaseEntityProps;
+import kaigee.top.menu.entity.Menu;
+import kaigee.top.menu.entity.MenuTableEx;
 import kaigee.top.user.root.entity.User;
 import kaigee.top.user.root.entity.UserRoleRel;
 import kaigee.top.user.root.entity.UserRoleRelTableEx;
@@ -40,7 +42,17 @@ public interface RoleProps extends BaseEntityProps {
     TypedProp.ReferenceList<Role, UserRoleRel> USERS = 
         TypedProp.referenceList(ImmutableType.get(Role.class).getProp("users"));
 
+    TypedProp.ReferenceList<Role, RoleMenuRel> MENUS = 
+        TypedProp.referenceList(ImmutableType.get(Role.class).getProp("menus"));
+
+    TypedProp.ReferenceList<Role, Menu> MENUS_VIEW = 
+        TypedProp.referenceList(ImmutableType.get(Role.class).getProp("menusView"));
+
     PropExpression.Str name();
 
     Predicate users(Function<UserRoleRelTableEx, Predicate> block);
+
+    Predicate menus(Function<RoleMenuRelTableEx, Predicate> block);
+
+    Predicate menusView(Function<MenuTableEx, Predicate> block);
 }

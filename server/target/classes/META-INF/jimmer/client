@@ -1,0 +1,1453 @@
+{
+  "services" : [ {
+    "typeName" : "kaigee.top.dict.controller.DictController",
+    "operations" : [ {
+      "name" : "findById",
+      "key" : "findById:java.lang.String",
+      "parameters" : [ {
+        "name" : "id",
+        "type" : {
+          "typeName" : "java.lang.String"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "kaigee.top.dict.entity.Dict",
+        "fetchBy" : "COMPLEX_FETCHER",
+        "fetcherOwner" : "kaigee.top.dict.repository.DictRepository",
+        "fetcherDoc" : null
+      }
+    }, {
+      "name" : "query",
+      "key" : "query:kaigee.top.infrastructure.model.QueryRequest",
+      "parameters" : [ {
+        "name" : "queryRequest",
+        "type" : {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+          "arguments" : [ {
+            "typeName" : "kaigee.top.dict.entity.dto.DictSpec"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "org.springframework.data.domain.Page",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.dict.entity.Dict",
+          "fetchBy" : "COMPLEX_FETCHER",
+          "fetcherOwner" : "kaigee.top.dict.repository.DictRepository",
+          "fetcherDoc" : null
+        } ]
+      }
+    }, {
+      "name" : "save",
+      "key" : "save:kaigee.top.dict.entity.dto.DictInput",
+      "parameters" : [ {
+        "name" : "dict",
+        "type" : {
+          "typeName" : "kaigee.top.dict.entity.dto.DictInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "delete",
+      "key" : "delete:java.util.List",
+      "parameters" : [ {
+        "name" : "ids",
+        "type" : {
+          "typeName" : "java.util.List",
+          "arguments" : [ {
+            "typeName" : "java.lang.String"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    }, {
+      "name" : "generateTS",
+      "key" : "generateTS",
+      "returnType" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "byte"
+        } ]
+      }
+    }, {
+      "name" : "generateJava",
+      "key" : "generateJava"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.menu.controller.MenuController",
+    "operations" : [ {
+      "name" : "findById",
+      "key" : "findById:java.lang.String",
+      "parameters" : [ {
+        "name" : "id",
+        "type" : {
+          "typeName" : "java.lang.String"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "kaigee.top.menu.entity.Menu",
+        "fetchBy" : "COMPLEX_FETCHER",
+        "fetcherOwner" : "kaigee.top.menu.repository.MenuRepository",
+        "fetcherDoc" : null
+      }
+    }, {
+      "name" : "query",
+      "key" : "query:kaigee.top.infrastructure.model.QueryRequest",
+      "parameters" : [ {
+        "name" : "queryRequest",
+        "type" : {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+          "arguments" : [ {
+            "typeName" : "kaigee.top.menu.entity.dto.MenuSpec"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "org.springframework.data.domain.Page",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.menu.entity.Menu",
+          "fetchBy" : "COMPLEX_FETCHER",
+          "fetcherOwner" : "kaigee.top.menu.repository.MenuRepository",
+          "fetcherDoc" : null
+        } ]
+      }
+    }, {
+      "name" : "save",
+      "key" : "save:kaigee.top.menu.entity.dto.MenuInput",
+      "parameters" : [ {
+        "name" : "menu",
+        "type" : {
+          "typeName" : "kaigee.top.menu.entity.dto.MenuInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "delete",
+      "key" : "delete:java.util.List",
+      "parameters" : [ {
+        "name" : "ids",
+        "type" : {
+          "typeName" : "java.util.List",
+          "arguments" : [ {
+            "typeName" : "java.lang.String"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.role.controller.RoleController",
+    "operations" : [ {
+      "name" : "findById",
+      "key" : "findById:java.lang.String",
+      "parameters" : [ {
+        "name" : "id",
+        "type" : {
+          "typeName" : "java.lang.String"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "kaigee.top.role.entity.Role",
+        "fetchBy" : "ROLE_MENU_FETCHER",
+        "fetcherOwner" : "kaigee.top.role.repository.RoleRepository",
+        "fetcherDoc" : null
+      }
+    }, {
+      "name" : "query",
+      "key" : "query:kaigee.top.infrastructure.model.QueryRequest",
+      "parameters" : [ {
+        "name" : "queryRequest",
+        "type" : {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+          "arguments" : [ {
+            "typeName" : "kaigee.top.role.entity.dto.RoleSpec"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "org.springframework.data.domain.Page",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.role.entity.Role",
+          "fetchBy" : "COMPLEX_FETCHER",
+          "fetcherOwner" : "kaigee.top.role.repository.RoleRepository",
+          "fetcherDoc" : null
+        } ]
+      }
+    }, {
+      "name" : "save",
+      "key" : "save:kaigee.top.role.entity.dto.RoleInput",
+      "parameters" : [ {
+        "name" : "role",
+        "type" : {
+          "typeName" : "kaigee.top.role.entity.dto.RoleInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "delete",
+      "key" : "delete:java.util.List",
+      "parameters" : [ {
+        "name" : "ids",
+        "type" : {
+          "typeName" : "java.util.List",
+          "arguments" : [ {
+            "typeName" : "java.lang.String"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.controller.UserForFrontController",
+    "operations" : [ {
+      "name" : "findById",
+      "key" : "findById:java.lang.String",
+      "parameters" : [ {
+        "name" : "id",
+        "type" : {
+          "typeName" : "java.lang.String"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "kaigee.top.user.root.entity.User",
+        "fetchBy" : "USER_ROLE_FETCHER",
+        "fetcherOwner" : "kaigee.top.user.root.repository.UserRepository",
+        "fetcherDoc" : null
+      }
+    }, {
+      "name" : "query",
+      "key" : "query:kaigee.top.infrastructure.model.QueryRequest",
+      "parameters" : [ {
+        "name" : "queryRequest",
+        "type" : {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+          "arguments" : [ {
+            "typeName" : "kaigee.top.user.root.entity.dto.UserSpec"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "org.springframework.data.domain.Page",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.user.root.entity.User",
+          "fetchBy" : "COMPLEX_FETCHER",
+          "fetcherOwner" : "kaigee.top.user.root.repository.UserRepository",
+          "fetcherDoc" : null
+        } ]
+      }
+    }, {
+      "name" : "save",
+      "key" : "save:kaigee.top.user.root.entity.dto.UserInput",
+      "parameters" : [ {
+        "name" : "user",
+        "type" : {
+          "typeName" : "kaigee.top.user.root.entity.dto.UserInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "delete",
+      "key" : "delete:java.util.List",
+      "parameters" : [ {
+        "name" : "ids",
+        "type" : {
+          "typeName" : "java.util.List",
+          "arguments" : [ {
+            "typeName" : "java.lang.String"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    }, {
+      "name" : "login",
+      "key" : "login:kaigee.top.user.root.entity.dto.UserLoginInput",
+      "parameters" : [ {
+        "name" : "userLoginInput",
+        "type" : {
+          "typeName" : "kaigee.top.user.root.entity.dto.UserLoginInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "cn.dev33.satoken.stp.SaTokenInfo"
+      }
+    } ]
+  } ],
+  "definitions" : [ {
+    "typeName" : "cn.dev33.satoken.stp.SaTokenInfo",
+    "props" : [ {
+      "name" : "tokenName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "tokenValue",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "isLogin",
+      "type" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    }, {
+      "name" : "loginId",
+      "type" : {
+        "typeName" : "java.lang.Object"
+      }
+    }, {
+      "name" : "loginType",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "tokenTimeout",
+      "type" : {
+        "typeName" : "long"
+      }
+    }, {
+      "name" : "sessionTimeout",
+      "type" : {
+        "typeName" : "long"
+      }
+    }, {
+      "name" : "tokenSessionTimeout",
+      "type" : {
+        "typeName" : "long"
+      }
+    }, {
+      "name" : "tokenActiveTimeout",
+      "type" : {
+        "typeName" : "long"
+      }
+    }, {
+      "name" : "loginDevice",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "tag",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    } ]
+  }, {
+    "typeName" : "io.qifan.infrastructure.common.model.BaseRequest"
+  }, {
+    "typeName" : "java.io.Serializable"
+  }, {
+    "typeName" : "java.lang.Iterable"
+  }, {
+    "typeName" : "java.util.function.Supplier"
+  }, {
+    "typeName" : "java.util.stream.BaseStream",
+    "props" : [ {
+      "name" : "parallel",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    } ]
+  }, {
+    "typeName" : "java.util.stream.Stream",
+    "superTypes" : [ {
+      "typeName" : "java.util.stream.BaseStream",
+      "arguments" : [ {
+        "typeName" : "<java.util.stream.Stream::T>"
+      }, {
+        "typeName" : "java.util.stream.Stream",
+        "arguments" : [ {
+          "typeName" : "<java.util.stream.Stream::T>"
+        } ]
+      } ]
+    } ]
+  }, {
+    "typeName" : "kaigee.top.dict.entity.Dict",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"dict\""
+    },
+    "props" : [ {
+      "name" : "keyId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "keyEnName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "keyName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "dictId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "dictName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "dictEnName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "visible",
+      "type" : {
+        "typeName" : "boolean"
+      },
+      "doc" : {
+        "value" : "是否可见"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.dict.entity.dto.DictInput",
+    "doc" : {
+      "value" : "Entity for table \"dict\""
+    },
+    "props" : [ {
+      "name" : "keyId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "keyEnName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "keyName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "dictId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "dictName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "dictEnName",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "visible",
+      "type" : {
+        "typeName" : "boolean"
+      },
+      "doc" : {
+        "value" : "是否可见"
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.dict.entity.dto.DictSpec",
+    "doc" : {
+      "value" : "Entity for table \"dict\""
+    },
+    "props" : [ {
+      "name" : "keyId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "dictId",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "visible",
+      "type" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "是否可见"
+      }
+    }, {
+      "name" : "dictName",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "keyName",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "dictEnName",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "keyEnName",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.dict.model.DictConstants$MenuType",
+    "kind" : "ENUM",
+    "constants" : [ {
+      "name" : "BUTTON"
+    }, {
+      "name" : "PAGE"
+    }, {
+      "name" : "DIRECTORY"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.dict.model.DictConstants$SEX",
+    "kind" : "ENUM",
+    "constants" : [ {
+      "name" : "FEMALE"
+    }, {
+      "name" : "MALE"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.infrastructure.jimmer.BaseDateTime",
+    "kind" : "IMMUTABLE",
+    "props" : [ {
+      "name" : "createdTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime"
+      }
+    }, {
+      "name" : "editedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime"
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity",
+    "kind" : "IMMUTABLE",
+    "props" : [ {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "editor",
+      "type" : {
+        "typeName" : "kaigee.top.user.root.entity.User"
+      }
+    }, {
+      "name" : "creator",
+      "type" : {
+        "typeName" : "kaigee.top.user.root.entity.User"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseDateTime"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+    "props" : [ {
+      "name" : "query",
+      "type" : {
+        "typeName" : "<kaigee.top.infrastructure.model.QueryRequest::T>"
+      }
+    }, {
+      "name" : "pageSize",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "pageNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "likeMode",
+      "type" : {
+        "typeName" : "org.babyfish.jimmer.sql.ast.LikeMode",
+        "nullable" : true
+      }
+    }, {
+      "name" : "sorts",
+      "type" : {
+        "typeName" : "java.util.List",
+        "nullable" : true,
+        "arguments" : [ {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest$QuerySort"
+        } ]
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "io.qifan.infrastructure.common.model.BaseRequest"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.infrastructure.model.QueryRequest$QuerySort",
+    "props" : [ {
+      "name" : "property",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "direction",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Sort$Direction"
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.menu.entity.Menu",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"menu\""
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "path",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "parentId",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "menuType",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$MenuType"
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "roles",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.role.entity.RoleMenuRel"
+        } ]
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.menu.entity.dto.MenuInput",
+    "doc" : {
+      "value" : "Entity for table \"menu\""
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "path",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "parentId",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "menuType",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$MenuType"
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.menu.entity.dto.MenuSpec",
+    "doc" : {
+      "value" : "Entity for table \"menu\""
+    },
+    "props" : [ {
+      "name" : "orderNum",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      }
+    }, {
+      "name" : "menuType",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$MenuType",
+        "nullable" : true
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "path",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "parentId",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.role.entity.Role",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"role\""
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "users",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.user.root.entity.UserRoleRel"
+        } ]
+      }
+    }, {
+      "name" : "menus",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.role.entity.RoleMenuRel"
+        } ]
+      }
+    }, {
+      "name" : "menusView",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.menu.entity.Menu"
+        } ]
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.role.entity.RoleMenuRel",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"role_menu_rel\""
+    },
+    "props" : [ {
+      "name" : "role",
+      "type" : {
+        "typeName" : "kaigee.top.role.entity.Role"
+      }
+    }, {
+      "name" : "menu",
+      "type" : {
+        "typeName" : "kaigee.top.menu.entity.Menu"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.role.entity.dto.RoleInput",
+    "doc" : {
+      "value" : "Entity for table \"role\""
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "menuIds",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "java.lang.String"
+        } ]
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.role.entity.dto.RoleSpec",
+    "doc" : {
+      "value" : "Entity for table \"role\""
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.entity.User",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"user\""
+    },
+    "props" : [ {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "nickname",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "avatar",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "gender",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$SEX",
+        "nullable" : true
+      }
+    }, {
+      "name" : "phone",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "password",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "status",
+      "type" : {
+        "typeName" : "java.lang.String"
+      },
+      "doc" : {
+        "value" : "用户状态"
+      }
+    }, {
+      "name" : "roles",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.user.root.entity.UserRoleRel"
+        } ]
+      }
+    }, {
+      "name" : "rolesView",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.role.entity.Role"
+        } ]
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseDateTime"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.entity.UserRoleRel",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "Entity for table \"user_role_rel\""
+    },
+    "props" : [ {
+      "name" : "user",
+      "type" : {
+        "typeName" : "kaigee.top.user.root.entity.User"
+      }
+    }, {
+      "name" : "role",
+      "type" : {
+        "typeName" : "kaigee.top.role.entity.Role"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.entity.dto.UserInput",
+    "doc" : {
+      "value" : "Entity for table \"user\""
+    },
+    "props" : [ {
+      "name" : "nickname",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "avatar",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "gender",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$SEX",
+        "nullable" : true
+      }
+    }, {
+      "name" : "phone",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "password",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "status",
+      "type" : {
+        "typeName" : "java.lang.String"
+      },
+      "doc" : {
+        "value" : "用户状态"
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "roleIds",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "java.lang.String"
+        } ]
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.entity.dto.UserLoginInput",
+    "doc" : {
+      "value" : "Entity for table \"user\""
+    },
+    "props" : [ {
+      "name" : "phone",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "password",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.user.root.entity.dto.UserSpec",
+    "doc" : {
+      "value" : "Entity for table \"user\""
+    },
+    "props" : [ {
+      "name" : "gender",
+      "type" : {
+        "typeName" : "kaigee.top.dict.model.DictConstants$SEX",
+        "nullable" : true
+      }
+    }, {
+      "name" : "status",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "用户状态"
+      }
+    }, {
+      "name" : "password",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "nickname",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "avatar",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "phone",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "org.babyfish.jimmer.sql.ast.LikeMode",
+    "kind" : "ENUM",
+    "constants" : [ {
+      "name" : "EXACT"
+    }, {
+      "name" : "START"
+    }, {
+      "name" : "END"
+    }, {
+      "name" : "ANYWHERE"
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Page",
+    "props" : [ {
+      "name" : "totalPages",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "totalElements",
+      "type" : {
+        "typeName" : "long"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "org.springframework.data.domain.Slice",
+      "arguments" : [ {
+        "typeName" : "<org.springframework.data.domain.Page::T>"
+      } ]
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Pageable",
+    "props" : [ {
+      "name" : "paged",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "unpaged",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "pageNumber",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "pageSize",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "offset",
+      "type" : {
+        "typeName" : "long"
+      }
+    }, {
+      "name" : "sort",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Sort"
+      }
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Slice",
+    "props" : [ {
+      "name" : "number",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "size",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "numberOfElements",
+      "type" : {
+        "typeName" : "int"
+      }
+    }, {
+      "name" : "content",
+      "type" : {
+        "typeName" : "java.util.List",
+        "arguments" : [ {
+          "typeName" : "<org.springframework.data.domain.Slice::T>"
+        } ]
+      }
+    }, {
+      "name" : "sort",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Sort"
+      }
+    }, {
+      "name" : "first",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "last",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "pageable",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Pageable"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "org.springframework.data.util.Streamable",
+      "arguments" : [ {
+        "typeName" : "<org.springframework.data.domain.Slice::T>"
+      } ]
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Sort",
+    "props" : [ {
+      "name" : "sorted",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "empty",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "unsorted",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "org.springframework.data.util.Streamable",
+      "arguments" : [ {
+        "typeName" : "org.springframework.data.domain.Sort$Order"
+      } ]
+    }, {
+      "typeName" : "java.io.Serializable"
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Sort$Direction",
+    "kind" : "ENUM",
+    "constants" : [ {
+      "name" : "ASC"
+    }, {
+      "name" : "DESC"
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Sort$NullHandling",
+    "kind" : "ENUM",
+    "constants" : [ {
+      "name" : "NATIVE"
+    }, {
+      "name" : "NULLS_FIRST"
+    }, {
+      "name" : "NULLS_LAST"
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.domain.Sort$Order",
+    "props" : [ {
+      "name" : "direction",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Sort$Direction"
+      }
+    }, {
+      "name" : "property",
+      "type" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "ascending",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "descending",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "ignoreCase",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    }, {
+      "name" : "nullHandling",
+      "type" : {
+        "typeName" : "org.springframework.data.domain.Sort$NullHandling"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "java.io.Serializable"
+    } ]
+  }, {
+    "typeName" : "org.springframework.data.util.Streamable",
+    "props" : [ {
+      "name" : "empty",
+      "type" : {
+        "typeName" : "boolean"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "java.lang.Iterable",
+      "arguments" : [ {
+        "typeName" : "<org.springframework.data.util.Streamable::T>"
+      } ]
+    }, {
+      "typeName" : "java.util.function.Supplier",
+      "arguments" : [ {
+        "typeName" : "java.util.stream.Stream",
+        "arguments" : [ {
+          "typeName" : "<org.springframework.data.util.Streamable::T>"
+        } ]
+      } ]
+    } ]
+  } ]
+}

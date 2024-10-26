@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import kaigee.top.infrastructure.jimmer.BaseEntityDraft;
+import kaigee.top.menu.entity.Menu;
 import kaigee.top.user.root.entity.User;
 import kaigee.top.user.root.entity.UserDraft;
 import kaigee.top.user.root.entity.UserRoleRel;
@@ -37,7 +38,9 @@ import org.babyfish.jimmer.runtime.ImmutableSpi;
 import org.babyfish.jimmer.runtime.Internal;
 import org.babyfish.jimmer.runtime.NonSharedList;
 import org.babyfish.jimmer.runtime.Visibility;
+import org.babyfish.jimmer.sql.ManyToManyView;
 import org.babyfish.jimmer.sql.OneToMany;
+import org.babyfish.jimmer.sql.collection.ManyToManyViewList;
 import org.jetbrains.annotations.NotNull;
 
 @GeneratedBy(
@@ -107,6 +110,17 @@ public interface RoleDraft extends Role, BaseEntityDraft {
     @OldChain
     RoleDraft addIntoUsers(UserRoleRel base, DraftConsumer<UserRoleRelDraft> block);
 
+    List<RoleMenuRelDraft> menus(boolean autoCreate);
+
+    @OldChain
+    RoleDraft setMenus(List<RoleMenuRel> menus);
+
+    @OldChain
+    RoleDraft addIntoMenus(DraftConsumer<RoleMenuRelDraft> block);
+
+    @OldChain
+    RoleDraft addIntoMenus(RoleMenuRel base, DraftConsumer<RoleMenuRelDraft> block);
+
     @GeneratedBy(
             type = Role.class
     )
@@ -127,6 +141,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
 
         public static final int SLOT_USERS = 6;
 
+        public static final int SLOT_MENUS = 7;
+
+        public static final int SLOT_MENUS_VIEW = 8;
+
         public static final ImmutableType TYPE = ImmutableType
             .newBuilder(
                 "0.8.186",
@@ -141,6 +159,8 @@ public interface RoleDraft extends Role, BaseEntityDraft {
             .redefine("creator", SLOT_CREATOR)
             .key(SLOT_NAME, "name", String.class, false)
             .add(SLOT_USERS, "users", OneToMany.class, UserRoleRel.class, false)
+            .add(SLOT_MENUS, "menus", OneToMany.class, RoleMenuRel.class, false)
+            .add(SLOT_MENUS_VIEW, "menusView", ManyToManyView.class, Menu.class, false)
             .build();
 
         private Producer() {
@@ -160,8 +180,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
         @GeneratedBy(
                 type = Role.class
         )
-        @JsonPropertyOrder({"dummyPropForJacksonError__", "id", "createdTime", "editedTime", "editor", "creator", "name", "users"})
+        @JsonPropertyOrder({"dummyPropForJacksonError__", "id", "createdTime", "editedTime", "editor", "creator", "name", "users", "menus", "menusView"})
         public abstract static class Implementor implements Role, ImmutableSpi {
+            public static final PropId DEEPER_PROP_ID_MENUS_VIEW = Producer.TYPE.getProp("menusView").getManyToManyViewBaseDeeperProp().getId();
+
             @Override
             public final Object __get(PropId prop) {
                 int __propIndex = prop.asIndex();
@@ -182,6 +204,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return name();
                     case SLOT_USERS:
                     		return users();
+                    case SLOT_MENUS:
+                    		return menus();
+                    case SLOT_MENUS_VIEW:
+                    		return menusView();
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -203,6 +229,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return name();
                     case "users":
                     		return users();
+                    case "menus":
+                    		return menus();
+                    case "menusView":
+                    		return menusView();
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -239,6 +269,21 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                 return users();
             }
 
+            public final List<RoleMenuRel> getMenus() {
+                return menus();
+            }
+
+            @Override
+            public final List<Menu> menusView() {
+                return new ManyToManyViewList<>(
+                            DEEPER_PROP_ID_MENUS_VIEW, menus()
+                        );
+            }
+
+            public final List<Menu> getMenusView() {
+                return menusView();
+            }
+
             @Override
             public final ImmutableType __type() {
                 return TYPE;
@@ -268,6 +313,13 @@ public interface RoleDraft extends Role, BaseEntityDraft {
             String __nameValue;
 
             NonSharedList<UserRoleRel> __usersValue;
+
+            NonSharedList<RoleMenuRel> __menusValue;
+
+            Impl() {
+                __visibility = Visibility.of(9);
+                __visibility.show(SLOT_MENUS_VIEW, false);
+            }
 
             @Override
             @JsonIgnore
@@ -333,6 +385,15 @@ public interface RoleDraft extends Role, BaseEntityDraft {
             }
 
             @Override
+            @JsonIgnore
+            public List<RoleMenuRel> menus() {
+                if (__menusValue == null) {
+                    throw new UnloadedException(Role.class, "menus");
+                }
+                return __menusValue;
+            }
+
+            @Override
             public Impl clone() {
                 try {
                     return (Impl)super.clone();
@@ -361,6 +422,12 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return __nameValue != null;
                     case SLOT_USERS:
                     		return __usersValue != null;
+                    case SLOT_MENUS:
+                    		return __menusValue != null;
+                    case SLOT_MENUS_VIEW:
+                    		return __isLoaded(PropId.byIndex(SLOT_MENUS)) && menus().stream().allMatch(__each -> 
+                                ((ImmutableSpi)__each).__isLoaded(DEEPER_PROP_ID_MENUS_VIEW)
+                            );
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -382,6 +449,12 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return __nameValue != null;
                     case "users":
                     		return __usersValue != null;
+                    case "menus":
+                    		return __menusValue != null;
+                    case "menusView":
+                    		return __isLoaded(PropId.byIndex(SLOT_MENUS)) && menus().stream().allMatch(__each -> 
+                                ((ImmutableSpi)__each).__isLoaded(DEEPER_PROP_ID_MENUS_VIEW)
+                            );
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -409,6 +482,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return __visibility.visible(SLOT_NAME);
                     case SLOT_USERS:
                     		return __visibility.visible(SLOT_USERS);
+                    case SLOT_MENUS:
+                    		return __visibility.visible(SLOT_MENUS);
+                    case SLOT_MENUS_VIEW:
+                    		return __visibility.visible(SLOT_MENUS_VIEW);
                     default: return true;
                 }
             }
@@ -433,6 +510,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		return __visibility.visible(SLOT_NAME);
                     case "users":
                     		return __visibility.visible(SLOT_USERS);
+                    case "menus":
+                    		return __visibility.visible(SLOT_MENUS);
+                    case "menusView":
+                    		return __visibility.visible(SLOT_MENUS_VIEW);
                     default: return true;
                 }
             }
@@ -463,6 +544,9 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                 if (__usersValue != null) {
                     hash = 31 * hash + __usersValue.hashCode();
                 }
+                if (__menusValue != null) {
+                    hash = 31 * hash + __menusValue.hashCode();
+                }
                 return hash;
             }
 
@@ -488,6 +572,9 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                 }
                 if (__usersValue != null) {
                     hash = 31 * hash + System.identityHashCode(__usersValue);
+                }
+                if (__menusValue != null) {
+                    hash = 31 * hash + System.identityHashCode(__menusValue);
                 }
                 return hash;
             }
@@ -574,6 +661,19 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                 if (__usersLoaded && !Objects.equals(__usersValue, __other.users())) {
                     return false;
                 }
+                if (__isVisible(PropId.byIndex(SLOT_MENUS)) != __other.__isVisible(PropId.byIndex(SLOT_MENUS))) {
+                    return false;
+                }
+                boolean __menusLoaded = __menusValue != null;
+                if (__menusLoaded != __other.__isLoaded(PropId.byIndex(SLOT_MENUS))) {
+                    return false;
+                }
+                if (__menusLoaded && !Objects.equals(__menusValue, __other.menus())) {
+                    return false;
+                }
+                if (__isVisible(PropId.byIndex(SLOT_MENUS_VIEW)) != __other.__isVisible(PropId.byIndex(SLOT_MENUS_VIEW))) {
+                    return false;
+                }
                 return true;
             }
 
@@ -650,6 +750,19 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     return false;
                 }
                 if (__usersLoaded && __usersValue != __other.users()) {
+                    return false;
+                }
+                if (__isVisible(PropId.byIndex(SLOT_MENUS)) != __other.__isVisible(PropId.byIndex(SLOT_MENUS))) {
+                    return false;
+                }
+                boolean __menusLoaded = __menusValue != null;
+                if (__menusLoaded != __other.__isLoaded(PropId.byIndex(SLOT_MENUS))) {
+                    return false;
+                }
+                if (__menusLoaded && __menusValue != __other.menus()) {
+                    return false;
+                }
+                if (__isVisible(PropId.byIndex(SLOT_MENUS_VIEW)) != __other.__isVisible(PropId.byIndex(SLOT_MENUS_VIEW))) {
                     return false;
                 }
                 return true;
@@ -968,6 +1081,47 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                 return this;
             }
 
+            @Override
+            @JsonIgnore
+            public List<RoleMenuRel> menus() {
+                return __ctx.toDraftList((__modified!= null ? __modified : __base).menus(), RoleMenuRel.class, true);
+            }
+
+            @Override
+            public List<RoleMenuRelDraft> menus(boolean autoCreate) {
+                if (autoCreate && (!__isLoaded(PropId.byIndex(SLOT_MENUS)))) {
+                    setMenus(new ArrayList<>());
+                }
+                return __ctx.toDraftList((__modified!= null ? __modified : __base).menus(), RoleMenuRel.class, true);
+            }
+
+            @Override
+            public RoleDraft setMenus(List<RoleMenuRel> menus) {
+                if (__resolved != null) {
+                    throw new IllegalStateException("The current draft has been resolved so it cannot be modified");
+                }
+                if (menus == null) {
+                    throw new IllegalArgumentException(
+                        "'menus' cannot be null, please specify non-null value or use nullable annotation to decorate this property"
+                    );
+                }
+                Impl __tmpModified = __modified();
+                __tmpModified.__menusValue = NonSharedList.of(__tmpModified.__menusValue, menus);
+                return this;
+            }
+
+            @Override
+            public RoleDraft addIntoMenus(DraftConsumer<RoleMenuRelDraft> block) {
+                addIntoMenus(null, block);
+                return this;
+            }
+
+            @Override
+            public RoleDraft addIntoMenus(RoleMenuRel base, DraftConsumer<RoleMenuRelDraft> block) {
+                menus(true).add((RoleMenuRelDraft)RoleMenuRelDraft.$.produce(base, block));
+                return this;
+            }
+
             @SuppressWarnings("unchecked")
             @Override
             public void __set(PropId prop, Object value) {
@@ -990,6 +1144,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		setName((String)value);break;
                     case SLOT_USERS:
                     		setUsers((List<UserRoleRel>)value);break;
+                    case SLOT_MENUS:
+                    		setMenus((List<RoleMenuRel>)value);break;
+                    case SLOT_MENUS_VIEW:
+                    		break;
                     default: throw new IllegalArgumentException("Illegal property id for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -1012,6 +1170,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		setName((String)value);break;
                     case "users":
                     		setUsers((List<UserRoleRel>)value);break;
+                    case "menus":
+                    		setMenus((List<RoleMenuRel>)value);break;
+                    case "menusView":
+                    		break;
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\"");
                 }
             }
@@ -1026,7 +1188,7 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     if (visible) {
                         return;
                     }
-                    __modified().__visibility = __visibility = Visibility.of(7);
+                    __modified().__visibility = __visibility = Visibility.of(9);
                 }
                 int __propIndex = prop.asIndex();
                 switch (__propIndex) {
@@ -1047,6 +1209,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		__visibility.show(SLOT_NAME, visible);break;
                     case SLOT_USERS:
                     		__visibility.show(SLOT_USERS, visible);break;
+                    case SLOT_MENUS:
+                    		__visibility.show(SLOT_MENUS, visible);break;
+                    case SLOT_MENUS_VIEW:
+                    		__visibility.show(SLOT_MENUS_VIEW, visible);break;
                     default: throw new IllegalArgumentException(
                                 "Illegal property id for \"kaigee.top.role.entity.Role\": \"" + 
                                 prop + 
@@ -1065,7 +1231,7 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     if (visible) {
                         return;
                     }
-                    __modified().__visibility = __visibility = Visibility.of(7);
+                    __modified().__visibility = __visibility = Visibility.of(9);
                 }
                 switch (prop) {
                     case "id":
@@ -1082,6 +1248,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		__visibility.show(SLOT_NAME, visible);break;
                     case "users":
                     		__visibility.show(SLOT_USERS, visible);break;
+                    case "menus":
+                    		__visibility.show(SLOT_MENUS, visible);break;
+                    case "menusView":
+                    		__visibility.show(SLOT_MENUS_VIEW, visible);break;
                     default: throw new IllegalArgumentException(
                                 "Illegal property name for \"kaigee.top.role.entity.Role\": \"" + 
                                 prop + 
@@ -1114,6 +1284,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		__modified().__nameValue = null;break;
                     case SLOT_USERS:
                     		__modified().__usersValue = null;break;
+                    case SLOT_MENUS:
+                    		__modified().__menusValue = null;break;
+                    case SLOT_MENUS_VIEW:
+                    		__unload(PropId.byIndex(SLOT_MENUS));break;
                     default: throw new IllegalArgumentException("Illegal property id for \"kaigee.top.role.entity.Role\": \"" + prop + "\", it does not exist or its loaded state is not controllable");
                 }
             }
@@ -1138,6 +1312,10 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                     		__modified().__nameValue = null;break;
                     case "users":
                     		__modified().__usersValue = null;break;
+                    case "menus":
+                    		__modified().__menusValue = null;break;
+                    case "menusView":
+                    		__unload(PropId.byIndex(SLOT_MENUS));break;
                     default: throw new IllegalArgumentException("Illegal property name for \"kaigee.top.role.entity.Role\": \"" + prop + "\", it does not exist or its loaded state is not controllable");
                 }
             }
@@ -1181,12 +1359,20 @@ public interface RoleDraft extends Role, BaseEntityDraft {
                                 setUsers(newValue);
                             }
                         }
+                        if (base.__isLoaded(PropId.byIndex(SLOT_MENUS))) {
+                            List<RoleMenuRel> oldValue = base.menus();
+                            List<RoleMenuRel> newValue = __ctx.resolveList(oldValue);
+                            if (oldValue != newValue) {
+                                setMenus(newValue);
+                            }
+                        }
                         __tmpModified = __modified;
                     }
                     else {
                         __tmpModified.__editorValue = __ctx.resolveObject(__tmpModified.__editorValue);
                         __tmpModified.__creatorValue = __ctx.resolveObject(__tmpModified.__creatorValue);
                         __tmpModified.__usersValue = NonSharedList.of(__tmpModified.__usersValue, __ctx.resolveList(__tmpModified.__usersValue));
+                        __tmpModified.__menusValue = NonSharedList.of(__tmpModified.__menusValue, __ctx.resolveList(__tmpModified.__menusValue));
                     }
                     if (__base != null && __tmpModified == null) {
                         this.__resolved = base;
@@ -1224,6 +1410,8 @@ public interface RoleDraft extends Role, BaseEntityDraft {
 
         public Builder() {
             __draft = new Producer.DraftImpl(null, null);
+            __draft.__show(PropId.byIndex(Producer.SLOT_MENUS), false);
+            __draft.__show(PropId.byIndex(Producer.SLOT_MENUS_VIEW), false);
         }
 
         public Builder id(String id) {
@@ -1275,6 +1463,14 @@ public interface RoleDraft extends Role, BaseEntityDraft {
         public Builder users(List<UserRoleRel> users) {
             if (users != null) {
                 __draft.setUsers(users);
+            }
+            return this;
+        }
+
+        public Builder menus(List<RoleMenuRel> menus) {
+            if (menus != null) {
+                __draft.setMenus(menus);
+                __draft.__show(PropId.byIndex(Producer.SLOT_MENUS), true);
             }
             return this;
         }

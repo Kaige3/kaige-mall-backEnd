@@ -2,6 +2,8 @@ package kaigee.top.role.entity;
 
 import java.lang.Override;
 import java.util.function.Consumer;
+import kaigee.top.menu.entity.Menu;
+import kaigee.top.menu.entity.MenuTable;
 import kaigee.top.user.root.entity.User;
 import kaigee.top.user.root.entity.UserRoleRel;
 import kaigee.top.user.root.entity.UserRoleRelTable;
@@ -144,6 +146,53 @@ public class RoleFetcher extends AbstractTypedFetcher<Role, RoleFetcher> {
     public RoleFetcher users(Fetcher<UserRoleRel> childFetcher,
             Consumer<ListFieldConfig<UserRoleRel, UserRoleRelTable>> fieldConfig) {
         return add("users", childFetcher, fieldConfig);
+    }
+
+    @NewChain
+    public RoleFetcher menus() {
+        return add("menus");
+    }
+
+    @NewChain
+    public RoleFetcher menus(boolean enabled) {
+        return enabled ? add("menus") : remove("menus");
+    }
+
+    @NewChain
+    public RoleFetcher menus(Fetcher<RoleMenuRel> childFetcher) {
+        return add("menus", childFetcher);
+    }
+
+    @NewChain
+    public RoleFetcher menus(Fetcher<RoleMenuRel> childFetcher,
+            Consumer<ListFieldConfig<RoleMenuRel, RoleMenuRelTable>> fieldConfig) {
+        return add("menus", childFetcher, fieldConfig);
+    }
+
+    @NewChain
+    public RoleFetcher menusView() {
+        return add("menusView");
+    }
+
+    @NewChain
+    public RoleFetcher menusView(boolean enabled) {
+        return enabled ? add("menusView") : remove("menusView");
+    }
+
+    @NewChain
+    public RoleFetcher menusView(Fetcher<Menu> childFetcher) {
+        return add("menusView", childFetcher);
+    }
+
+    @NewChain
+    public RoleFetcher menusView(Fetcher<Menu> childFetcher,
+            Consumer<ListFieldConfig<Menu, MenuTable>> fieldConfig) {
+        return add("menusView", childFetcher, fieldConfig);
+    }
+
+    @NewChain
+    public RoleFetcher menusView(IdOnlyFetchType idOnlyFetchType) {
+        return add("menusView", idOnlyFetchType);
     }
 
     @Override

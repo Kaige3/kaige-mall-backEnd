@@ -1,0 +1,19 @@
+
+input RoleSpecInput {
+    #allScalars(RoleSpec)
+    id?
+}
+
+specification RoleSpecSpec {
+    #allScalars
+    like/i(getName)
+    like/i(getId)
+    ge(getMaxEditedTime)
+    le(getMaxEditedTime)
+    ge(getMinCreatedTime)
+    le(getMinCreatedTime)
+    ge(getMaxCreatedTime)
+    le(getMaxCreatedTime)
+    ge(getMinEditedTime)
+    le(getMinEditedTime)
+}

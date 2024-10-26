@@ -5,6 +5,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.time.LocalDateTime;
 import java.util.function.Function;
+import kaigee.top.menu.entity.MenuTableEx;
 import kaigee.top.user.root.entity.UserRoleRelTableEx;
 import kaigee.top.user.root.entity.UserTable;
 import org.babyfish.jimmer.internal.GeneratedBy;
@@ -106,6 +107,16 @@ public class RoleTable extends AbstractTypedTable<Role> implements RoleProps {
     @Override
     public Predicate users(Function<UserRoleRelTableEx, Predicate> block) {
         return exists(RoleProps.USERS.unwrap(), block);
+    }
+
+    @Override
+    public Predicate menus(Function<RoleMenuRelTableEx, Predicate> block) {
+        return exists(RoleProps.MENUS.unwrap(), block);
+    }
+
+    @Override
+    public Predicate menusView(Function<MenuTableEx, Predicate> block) {
+        return exists(RoleProps.MENUS_VIEW.unwrap(), block);
     }
 
     @Override

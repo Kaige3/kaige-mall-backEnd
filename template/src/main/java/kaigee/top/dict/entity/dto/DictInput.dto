@@ -1,0 +1,14 @@
+
+input DictInputInput {
+    #allScalars(DictInput)
+    id?
+}
+
+specification DictInputSpec {
+    #allScalars
+    like/i(getId)
+    like/i(getDictEnName)
+    like/i(getKeyEnName)
+    like/i(getDictName)
+    like/i(getKeyName)
+}

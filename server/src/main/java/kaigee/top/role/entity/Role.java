@@ -3,9 +3,11 @@ package kaigee.top.role.entity;
 import io.qifan.infrastructure.generator.core.GenEntity;
 import io.qifan.infrastructure.generator.core.GenField;
 import kaigee.top.infrastructure.jimmer.BaseEntity;
+import kaigee.top.menu.entity.Menu;
 import kaigee.top.user.root.entity.UserRoleRel;
 import org.babyfish.jimmer.sql.Entity;
 import org.babyfish.jimmer.sql.Key;
+import org.babyfish.jimmer.sql.ManyToManyView;
 import org.babyfish.jimmer.sql.OneToMany;
 
 import java.util.List;
@@ -24,5 +26,11 @@ public interface Role extends BaseEntity {
 
     @OneToMany(mappedBy = "role")
     List<UserRoleRel> users();
+
+    @OneToMany(mappedBy = "role")
+    List<RoleMenuRel> menus();
+
+    @ManyToManyView(prop = "menus")
+    List<Menu> menusView();
 }
 

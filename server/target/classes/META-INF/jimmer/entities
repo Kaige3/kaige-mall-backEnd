@@ -1,0 +1,6 @@
+kaigee.top.dict.entity.Dict
+kaigee.top.menu.entity.Menu
+kaigee.top.role.entity.Role
+kaigee.top.role.entity.RoleMenuRel
+kaigee.top.user.root.entity.User
+kaigee.top.user.root.entity.UserRoleRel

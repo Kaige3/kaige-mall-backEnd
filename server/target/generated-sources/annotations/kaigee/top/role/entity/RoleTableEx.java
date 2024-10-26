@@ -5,6 +5,7 @@ import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
 import java.util.function.Function;
+import kaigee.top.menu.entity.MenuTableEx;
 import kaigee.top.user.root.entity.UserRoleRelTableEx;
 import kaigee.top.user.root.entity.UserTableEx;
 import org.babyfish.jimmer.internal.GeneratedBy;
@@ -90,6 +91,48 @@ public class RoleTableEx extends RoleTable implements TableEx<Role> {
     @Override
     public Predicate users(Function<UserRoleRelTableEx, Predicate> block) {
         return exists(RoleProps.USERS.unwrap(), block);
+    }
+
+    public RoleMenuRelTableEx menus() {
+        __beforeJoin();
+        if (raw != null) {
+            return new RoleMenuRelTableEx(raw.joinImplementor(RoleProps.MENUS.unwrap()));
+        }
+        return new RoleMenuRelTableEx(joinOperation(RoleProps.MENUS.unwrap()));
+    }
+
+    public RoleMenuRelTableEx menus(JoinType joinType) {
+        __beforeJoin();
+        if (raw != null) {
+            return new RoleMenuRelTableEx(raw.joinImplementor(RoleProps.MENUS.unwrap(), joinType));
+        }
+        return new RoleMenuRelTableEx(joinOperation(RoleProps.MENUS.unwrap(), joinType));
+    }
+
+    @Override
+    public Predicate menus(Function<RoleMenuRelTableEx, Predicate> block) {
+        return exists(RoleProps.MENUS.unwrap(), block);
+    }
+
+    public MenuTableEx menusView() {
+        __beforeJoin();
+        if (raw != null) {
+            return new MenuTableEx(raw.joinImplementor(RoleProps.MENUS_VIEW.unwrap()));
+        }
+        return new MenuTableEx(joinOperation(RoleProps.MENUS_VIEW.unwrap()));
+    }
+
+    public MenuTableEx menusView(JoinType joinType) {
+        __beforeJoin();
+        if (raw != null) {
+            return new MenuTableEx(raw.joinImplementor(RoleProps.MENUS_VIEW.unwrap(), joinType));
+        }
+        return new MenuTableEx(joinOperation(RoleProps.MENUS_VIEW.unwrap(), joinType));
+    }
+
+    @Override
+    public Predicate menusView(Function<MenuTableEx, Predicate> block) {
+        return exists(RoleProps.MENUS_VIEW.unwrap(), block);
     }
 
     @Override
