@@ -101,11 +101,13 @@
                     {{row.orderNum}}
         </template>
     </el-table-column>
+
     <el-table-column label="图标" prop="icon" sortable="custom">
         <template v-slot:default="{row}:MenuScope">
-                    <el-avatar :src="row.icon" alt=""></el-avatar>
+            <component :is="row.icon" v-if="row"></component>
         </template>
     </el-table-column>
+
             <el-table-column label="创建时间" prop="createdTime" sortable="custom">
                 <template v-slot:default="{ row }: MenuScope">
                     {{ row.createdTime }}
@@ -116,7 +118,7 @@
                     {{ row.editedTime }}
                 </template>
             </el-table-column>
-            <el-table-column label="创建人" prop="creator.phone" sortable="custom" show-overflow-tooltip>
+            <!-- <el-table-column label="创建人" prop="creator.phone" sortable="custom" show-overflow-tooltip>
                 <template v-slot:default="{ row }: MenuScope">
                     {{ row.creator.nickname }}({{ row.creator.phone }})
                 </template>
@@ -125,7 +127,7 @@
                 <template v-slot:default="{ row }: MenuScope">
                     {{ row.editor.nickname }}({{ row.editor.phone }})
                 </template>
-            </el-table-column>
+            </el-table-column> -->
             <el-table-column label="操作" fixed="right" >
                 <template v-slot:default="{ row }">
                     <div>

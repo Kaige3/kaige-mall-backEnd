@@ -21,5 +21,16 @@ export type MenuDto = {
             phone: string;
             nickname?: string | undefined;
         };
+    }, 
+    'MenuRepository/SIMPLE_FETCHER': {
+        id: string;
+        createdTime: string;
+        editedTime: string;
+        name: string;
+        path: string;
+        parentId?: string | undefined;
+        orderNum?: number | undefined;
+        menuType: MenuType;
+        icon?: string | undefined;
     }
 }

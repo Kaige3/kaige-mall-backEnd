@@ -83,9 +83,12 @@
     <el-form-item label="排序" prop="orderNum">
                 <el-input-number v-model="createForm.orderNum"></el-input-number>
     </el-form-item>
+
     <el-form-item label="图标" prop="icon">
-                <image-upload v-model="createForm.icon"></image-upload>
+        <el-input v-model.trim="createForm.icon"></el-input>
     </el-form-item>
+
+
         </el-form>
         <footer-button @close="closeDialog" @confirm="handleConfirm"></footer-button>
     </div>

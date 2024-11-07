@@ -10,9 +10,6 @@ export type UserDto = {
         gender?: SEX | undefined;
         phone: string;
         password: string;
-        /**
-         * 用户状态
-         */
         status: string;
     }, 
     'UserRepository/USER_ROLE_FETCHER': {
@@ -24,9 +21,6 @@ export type UserDto = {
         gender?: SEX | undefined;
         phone: string;
         password: string;
-        /**
-         * 用户状态
-         */
         status: string;
         rolesView: Array<{
             id: string;

@@ -1,13 +1,7 @@
 import type {SEX} from '../enums/';
 
-/**
- * Entity for table "user"
- */
 export interface UserSpec {
     gender?: SEX | undefined;
-    /**
-     * 用户状态
-     */
     status?: string | undefined;
     password?: string | undefined;
     id?: string | undefined;

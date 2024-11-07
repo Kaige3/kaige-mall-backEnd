@@ -1,6 +1,3 @@
-/**
- * Entity for table "role"
- */
 export interface RoleSpec {
     name?: string | undefined;
     id?: string | undefined;

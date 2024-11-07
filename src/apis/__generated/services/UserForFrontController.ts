@@ -1,5 +1,5 @@
 import type {Executor} from '../';
-import type {UserDto} from '../model/dto/';
+import type {MenuDto, UserDto} from '../model/dto/';
 import type {
     Page, 
     QueryRequest, 
@@ -28,6 +28,20 @@ export class UserForFrontController {
         return (await this.executor({uri: _uri, method: 'GET'})) as Promise<UserDto['UserRepository/USER_ROLE_FETCHER']>;
     }
     
+    getUserInfo: () => Promise<
+        UserDto['UserRepository/USER_ROLE_FETCHER']
+    > = async() => {
+        let _uri = '/front/user/info';
+        return (await this.executor({uri: _uri, method: 'POST'})) as Promise<UserDto['UserRepository/USER_ROLE_FETCHER']>;
+    }
+    
+    getUserMenus: () => Promise<
+        Array<MenuDto['MenuRepository/SIMPLE_FETCHER']>
+    > = async() => {
+        let _uri = '/front/user/menus';
+        return (await this.executor({uri: _uri, method: 'GET'})) as Promise<Array<MenuDto['MenuRepository/SIMPLE_FETCHER']>>;
+    }
+    
     login: (options: UserForFrontControllerOptions['login']) => Promise<
         SaTokenInfo
     > = async(options) => {
@@ -51,6 +65,7 @@ export class UserForFrontController {
 }
 
 export type UserForFrontControllerOptions = {
+    'getUserInfo': {}, 
     'findById': {
         id: string
     }, 
@@ -65,5 +80,6 @@ export type UserForFrontControllerOptions = {
     }, 
     'login': {
         body: UserLoginInput
-    }
+    }, 
+    'getUserMenus': {}
 }

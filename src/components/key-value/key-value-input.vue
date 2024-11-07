@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="key-value-section">
     <div class="key-value-wrapper" v-for="(keyValue, index) in keyValueList" :key="index">
       <el-button
@@ -89,4 +89,4 @@ watch(
     }
   }
 }
-</style>
+</style> -->

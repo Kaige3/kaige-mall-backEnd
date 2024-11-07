@@ -5,32 +5,34 @@ import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    {
-      path:'/menu',
-      name:"menu-view",
-      component:()=>import('@/views/menu/menu-view.vue')
-    },
-    {
-      path:'/role',
-      name:"role-view",
-      component:()=>import('@/views/role/role-view.vue')
-    },
-    {
-      path:'/user',
-      name:"user-view",
-      component:()=>import('@/views/user/user-view.vue')
-    },
+    
     {
       path: '/',
       name: 'layout-view',
       component: () => import('@/layout/layout-view.vue'),
-      children: [{ path: '/user', component: () => import('@/views/user/user-view.vue') }]
+      children: [{
+        path:'/menu',
+        name:"menu-view",
+        component:()=>import('@/views/menu/menu-view.vue')
+      },
+      {
+        path:'/role',
+        name:"role-view",
+        component:()=>import('@/views/role/role-view.vue')
+      },
+      {
+        path:'/user',
+        name:"user-view",
+        component:()=>import('@/views/user/user-view.vue')
+      },
+      {
+        path: '/dict',
+        name: 'dict-view',
+        component: () => import('@/views/dict/dict-view.vue')
+      }
+    ]
     },
-    {
-      path: '/dict',
-      name: 'dict-view',
-      component: () => import('@/views/dict/dict-view.vue')
-    },
+    
     {
       path: '/login',
       name: 'login',

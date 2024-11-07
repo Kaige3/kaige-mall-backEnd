@@ -1,74 +1,64 @@
 <script setup lang="ts">
 import AsideMenu from '@/layout/components/aside-menu.vue'
-import { onMounted, ref, watch } from 'vue'
-import { Avatar, Fold, Setting } from '@element-plus/icons-vue'
-// import { useHomeStore } from '@/store/home-store'
+import { ref } from 'vue'
+import { Avatar, Fold } from '@element-plus/icons-vue'
+import { useHomeStore } from '@/store/homeStore'
 import { storeToRefs } from 'pinia'
-import logo from '@/assets/logo.jpg'
 import RouterTags from '@/layout/components/router-tags.vue'
-import router from '@/router'
-// import { useTagStore } from '@/layout/store/tag-store'
-// const tagStore = useTagStore()
-// const { collapse } = storeToRefs(tagStore)
-// const homeStore = useHomeStore()
-
-// homeStore.init()
-// const { userInfo } = storeToRefs(homeStore)
-// const handleLogout = () => {
-//   homeStore.logout()
-//   router.push('/login')
-// }
-// onMounted(() => {
-//   let init = false
-//   if (tagStore.activeTag.path) {
-//     console.log(tagStore.activeTag.path)
-//   }
-//   watch(
-//     () => homeStore.menuTreeList.length,
-//     (value) => {
-//       if (!init && value > 0) {
-//         tagStore.openTag(tagStore.activeTag.path)
-//         init = true
-//       }
-//     }
-//   )
-// })
+import logo from '@/assets/logo.jpg'
+const isCollapse = ref(false)
+const homeStore = useHomeStore()
+const { userInfo } = storeToRefs(homeStore)
 </script>
 
 <template>
   <el-container class="index">
     <!-- 对应红色的上半部分，展示页头，用户信息，退出登录等 -->
     <el-header class="header-wrapper">
-      <div class="header"></div>
+      <div class="header">
+        <div class="logo">
+          <el-avatar :src="logo" :size="22"></el-avatar>
+          <div class="separator"></div>
+          <span>Mall-Admin</span>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="username-wrapper">
+          <el-icon>
+            <avatar></avatar>
+          </el-icon>
+          <div class="username">{{ userInfo.nickname }}</div>
+          <div class="avatar" v-if="userInfo.avatar">
+            <el-avatar :src="userInfo.avatar" :size="22"></el-avatar>
+          </div>
+        </div>
+      </div>
     </el-header>
-
     <!-- 对应红色的下半部分 -->
     <el-container class="menu-router">
-      <!-- 对应蓝色的左半部分，展示侧边菜单 -->
+        <!-- 对应蓝色的左半部分，展示侧边菜单 -->
       <div class="aside-menu-wrapper">
-        <!-- <aside-menu :collapse="collapse"></aside-menu> -->
+        <aside-menu :collapse="isCollapse"></aside-menu>
       </div>
-
       <!-- 对应蓝色的右半部分 -->
       <el-main class="router-wrapper">
         <!-- 对应绿色的上半部分，展示页签 -->
         <el-header class="router-header">
-          <!-- <div @click="collapse = !collapse" class="fold-wrapper">
-            <el-icon :class="['fold', collapse ? 'expand' : '']" size="20">
+          <div @click="isCollapse = !isCollapse" class="fold-wrapper">
+            <el-icon :class="['fold', isCollapse ? 'expand' : '']" size="20">
               <fold></fold>
             </el-icon>
           </div>
-          <router-tags></router-tags> -->
+          <router-tags></router-tags>
         </el-header>
-
         <!-- 对应绿色的下半部分，展示子路由 -->
         <el-scrollbar class="router">
           <router-view v-slot="{ Component }">
-            <keep-alive>
+            <transition name="slide">
               <component :is="Component" />
-            </keep-alive>
+            </transition>
           </router-view>
         </el-scrollbar>
+        
       </el-main>
     </el-container>
   </el-container>
@@ -110,10 +100,6 @@ import router from '@/router'
         }
         .avatar {
           margin-left: 10px;
-        }
-        .dropdown {
-          margin-left: 10px;
-          color: white;
         }
       }
     }

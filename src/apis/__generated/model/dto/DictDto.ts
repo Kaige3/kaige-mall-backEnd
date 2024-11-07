@@ -10,9 +10,6 @@ export type DictDto = {
         dictName: string;
         dictEnName: string;
         orderNum?: number | undefined;
-        /**
-         * 是否可见
-         */
         visible: boolean;
     }
 }

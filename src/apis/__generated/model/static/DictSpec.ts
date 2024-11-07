@@ -1,13 +1,7 @@
-/**
- * Entity for table "dict"
- */
 export interface DictSpec {
     keyId?: number | undefined;
     dictId?: number | undefined;
     orderNum?: number | undefined;
-    /**
-     * 是否可见
-     */
     visible?: boolean | undefined;
     dictName?: string | undefined;
     keyName?: string | undefined;
