@@ -126,6 +126,7 @@ public class DictConstants {
   public enum SEX{
         FEMALE(1, "女", "FEMALE", 1001, "性别", "SEX", 0),
         MALE(0, "男", "MALE", 1001, "性别", "SEX", 0),
+        PRIVATE(2,"保密", "PRIVATE",1001,"性别","SEX", 0)
   ;
   final int keyId;
   final String keyName;

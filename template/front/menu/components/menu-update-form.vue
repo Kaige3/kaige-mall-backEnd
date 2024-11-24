@@ -63,6 +63,9 @@
     <el-form-item label="排序" prop="orderNum">
                 <el-input-number v-model="updateForm.orderNum"></el-input-number>
     </el-form-item>
+    <el-form-item label="菜单类型" prop="menuType">
+                <dict-select :dict-id="DictConstants.MENU_TYPE" v-model="updateForm.menuType"></dict-select>
+    </el-form-item>
     <el-form-item label="图标" prop="icon">
                 <image-upload v-model="updateForm.icon"></image-upload>
     </el-form-item>

@@ -9,10 +9,10 @@ specification UserSpec {
     like/i(password)
     like/i(id)
     like/i(status)
-    like/i(nickname)
     like/i(phone)
-    ge(editedTime)
-    le(editedTime)
+    like/i(nickname)
     ge(createdTime)
     le(createdTime)
+    ge(editedTime)
+    le(editedTime)
 }

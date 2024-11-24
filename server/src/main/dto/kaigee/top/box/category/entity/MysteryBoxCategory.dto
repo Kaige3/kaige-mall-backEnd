@@ -1,0 +1,17 @@
+
+input MysteryBoxCategoryInput {
+    #allScalars(MysteryBoxCategory)
+    id?
+}
+
+specification MysteryBoxCategorySpec {
+    #allScalars
+    like/i(name)
+    like/i(description)
+    like/i(icon)
+    like/i(id)
+    ge(createdTime)
+    le(createdTime)
+    ge(editedTime)
+    le(editedTime)
+}

@@ -1,5 +1,7 @@
 package kaigee.top;
 
+import kaigee.top.box.category.entity.MysteryBoxCategory;
+import kaigee.top.box.category.entity.MysteryBoxCategoryDraft;
 import kaigee.top.dict.entity.Dict;
 import kaigee.top.dict.entity.DictDraft;
 import kaigee.top.menu.entity.Menu;
@@ -17,6 +19,16 @@ import org.babyfish.jimmer.internal.GeneratedBy;
 
 @GeneratedBy
 public interface Objects {
+    static MysteryBoxCategory createMysteryBoxCategory(
+            DraftConsumer<MysteryBoxCategoryDraft> block) {
+        return MysteryBoxCategoryDraft.$.produce(block);
+    }
+
+    static MysteryBoxCategory createMysteryBoxCategory(MysteryBoxCategory base,
+            DraftConsumer<MysteryBoxCategoryDraft> block) {
+        return MysteryBoxCategoryDraft.$.produce(base, block);
+    }
+
     static Dict createDict(DraftConsumer<DictDraft> block) {
         return DictDraft.$.produce(block);
     }

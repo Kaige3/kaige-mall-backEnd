@@ -1,5 +1,76 @@
 {
   "services" : [ {
+    "typeName" : "kaigee.top.box.category.controller.MysteryBoxCategoryController",
+    "operations" : [ {
+      "name" : "findById",
+      "key" : "findById:java.lang.String",
+      "parameters" : [ {
+        "name" : "id",
+        "type" : {
+          "typeName" : "java.lang.String"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "kaigee.top.box.category.entity.MysteryBoxCategory",
+        "fetchBy" : "COMPLEX_FETCHER",
+        "fetcherOwner" : "kaigee.top.box.category.repository.MysteryBoxCategoryRepository",
+        "fetcherDoc" : { }
+      }
+    }, {
+      "name" : "query",
+      "key" : "query:kaigee.top.infrastructure.model.QueryRequest",
+      "parameters" : [ {
+        "name" : "queryRequest",
+        "type" : {
+          "typeName" : "kaigee.top.infrastructure.model.QueryRequest",
+          "arguments" : [ {
+            "typeName" : "kaigee.top.box.category.entity.dto.MysteryBoxCategorySpec"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "org.springframework.data.domain.Page",
+        "arguments" : [ {
+          "typeName" : "kaigee.top.box.category.entity.MysteryBoxCategory",
+          "fetchBy" : "COMPLEX_FETCHER",
+          "fetcherOwner" : "kaigee.top.box.category.repository.MysteryBoxCategoryRepository",
+          "fetcherDoc" : { }
+        } ]
+      }
+    }, {
+      "name" : "save",
+      "key" : "save:kaigee.top.box.category.entity.dto.MysteryBoxCategoryInput",
+      "parameters" : [ {
+        "name" : "mysteryBoxCategory",
+        "type" : {
+          "typeName" : "kaigee.top.box.category.entity.dto.MysteryBoxCategoryInput"
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "java.lang.String"
+      }
+    }, {
+      "name" : "delete",
+      "key" : "delete:java.util.List",
+      "parameters" : [ {
+        "name" : "ids",
+        "type" : {
+          "typeName" : "java.util.List",
+          "arguments" : [ {
+            "typeName" : "java.lang.String"
+          } ]
+        },
+        "index" : 0
+      } ],
+      "returnType" : {
+        "typeName" : "boolean",
+        "nullable" : true
+      }
+    } ]
+  }, {
     "typeName" : "kaigee.top.dict.controller.DictController",
     "operations" : [ {
       "name" : "findById",
@@ -419,6 +490,172 @@
       } ]
     } ]
   }, {
+    "typeName" : "kaigee.top.box.category.entity.MysteryBoxCategory",
+    "kind" : "IMMUTABLE",
+    "doc" : {
+      "value" : "盲盒类别"
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别名称"
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别图标"
+      }
+    }, {
+      "name" : "description",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "描述"
+      }
+    }, {
+      "name" : "sortOrder",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "排序号"
+      }
+    } ],
+    "superTypes" : [ {
+      "typeName" : "kaigee.top.infrastructure.jimmer.BaseEntity"
+    } ]
+  }, {
+    "typeName" : "kaigee.top.box.category.entity.dto.MysteryBoxCategoryInput",
+    "doc" : {
+      "value" : "盲盒类别"
+    },
+    "props" : [ {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别名称"
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别图标"
+      }
+    }, {
+      "name" : "description",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "描述"
+      }
+    }, {
+      "name" : "sortOrder",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "排序号"
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    } ]
+  }, {
+    "typeName" : "kaigee.top.box.category.entity.dto.MysteryBoxCategorySpec",
+    "doc" : {
+      "value" : "盲盒类别"
+    },
+    "props" : [ {
+      "name" : "sortOrder",
+      "type" : {
+        "typeName" : "int",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "排序号"
+      }
+    }, {
+      "name" : "name",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别名称"
+      }
+    }, {
+      "name" : "description",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "描述"
+      }
+    }, {
+      "name" : "icon",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      },
+      "doc" : {
+        "value" : "类别图标"
+      }
+    }, {
+      "name" : "id",
+      "type" : {
+        "typeName" : "java.lang.String",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxCreatedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "minEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    }, {
+      "name" : "maxEditedTime",
+      "type" : {
+        "typeName" : "java.time.LocalDateTime",
+        "nullable" : true
+      }
+    } ]
+  }, {
     "typeName" : "kaigee.top.dict.entity.Dict",
     "kind" : "IMMUTABLE",
     "props" : [ {
@@ -618,6 +855,8 @@
       "name" : "FEMALE"
     }, {
       "name" : "MALE"
+    }, {
+      "name" : "PRIVATE"
     } ]
   }, {
     "typeName" : "kaigee.top.infrastructure.jimmer.BaseDateTime",

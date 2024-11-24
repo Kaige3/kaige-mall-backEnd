@@ -1,5 +1,6 @@
 package kaigee.top;
 
+import kaigee.top.box.category.entity.MysteryBoxCategoryTable;
 import kaigee.top.dict.entity.DictTable;
 import kaigee.top.menu.entity.MenuTable;
 import kaigee.top.role.entity.RoleMenuRelTable;
@@ -10,6 +11,8 @@ import org.babyfish.jimmer.internal.GeneratedBy;
 
 @GeneratedBy
 public interface Tables {
+    MysteryBoxCategoryTable MYSTERY_BOX_CATEGORY_TABLE = MysteryBoxCategoryTable.$;
+
     DictTable DICT_TABLE = DictTable.$;
 
     MenuTable MENU_TABLE = MenuTable.$;

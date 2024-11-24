@@ -1,5 +1,6 @@
 package kaigee.top;
 
+import kaigee.top.box.category.entity.MysteryBoxCategoryFetcher;
 import kaigee.top.dict.entity.DictFetcher;
 import kaigee.top.menu.entity.MenuFetcher;
 import kaigee.top.role.entity.RoleFetcher;
@@ -10,6 +11,8 @@ import org.babyfish.jimmer.internal.GeneratedBy;
 
 @GeneratedBy
 public interface Fetchers {
+    MysteryBoxCategoryFetcher MYSTERY_BOX_CATEGORY_FETCHER = MysteryBoxCategoryFetcher.$;
+
     DictFetcher DICT_FETCHER = DictFetcher.$;
 
     MenuFetcher MENU_FETCHER = MenuFetcher.$;

@@ -1,5 +1,6 @@
 package kaigee.top;
 
+import kaigee.top.box.category.entity.MysteryBoxCategoryTableEx;
 import kaigee.top.dict.entity.DictTableEx;
 import kaigee.top.menu.entity.MenuTableEx;
 import kaigee.top.role.entity.RoleMenuRelTableEx;
@@ -10,6 +11,8 @@ import org.babyfish.jimmer.internal.GeneratedBy;
 
 @GeneratedBy
 public interface TableExes {
+    MysteryBoxCategoryTableEx MYSTERY_BOX_CATEGORY_TABLE_EX = MysteryBoxCategoryTableEx.$;
+
     DictTableEx DICT_TABLE_EX = DictTableEx.$;
 
     MenuTableEx MENU_TABLE_EX = MenuTableEx.$;

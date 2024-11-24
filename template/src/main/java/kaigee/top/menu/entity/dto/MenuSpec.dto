@@ -1,0 +1,21 @@
+
+input MenuSpecInput {
+    #allScalars(MenuSpec)
+    id?
+}
+
+specification MenuSpecSpec {
+    #allScalars
+    like/i(getName)
+    like/i(getId)
+    like/i(getPath)
+    ge(getMaxCreatedTime)
+    le(getMaxCreatedTime)
+    ge(getMaxEditedTime)
+    le(getMaxEditedTime)
+    ge(getMinEditedTime)
+    le(getMinEditedTime)
+    ge(getMinCreatedTime)
+    le(getMinCreatedTime)
+    like/i(getParentId)
+}

@@ -25,6 +25,9 @@
     <el-form-item label="排序">
                 <el-input-number v-model="query.orderNum" controls-position="right"></el-input-number>
     </el-form-item>
+    <el-form-item label="菜单类型">
+                <dict-select :dict-id="DictConstants.MENU_TYPE" v-model="query.menuType"></dict-select>
+    </el-form-item>
       <el-form-item label=" ">
         <div class="btn-wrapper">
           <el-button

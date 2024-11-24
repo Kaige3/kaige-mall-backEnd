@@ -10,8 +10,8 @@ specification MenuSpec {
     like/i(path)
     like/i(parentId)
     like/i(id)
-    ge(editedTime)
-    le(editedTime)
     ge(createdTime)
     le(createdTime)
+    ge(editedTime)
+    le(editedTime)
 }

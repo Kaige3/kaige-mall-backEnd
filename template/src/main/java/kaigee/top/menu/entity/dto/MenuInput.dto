@@ -1,0 +1,13 @@
+
+input MenuInputInput {
+    #allScalars(MenuInput)
+    id?
+}
+
+specification MenuInputSpec {
+    #allScalars
+    like/i(getName)
+    like/i(getId)
+    like/i(getPath)
+    like/i(getParentId)
+}

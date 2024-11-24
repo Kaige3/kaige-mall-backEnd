@@ -36,7 +36,7 @@ public interface Menu extends BaseEntity {
     @GenField(value = "父级菜单",order = 1)
     String parentId();
 
-@GenField(value = "排序",order = 3)
+    @GenField(value = "排序",order = 3)
     Integer orderNum();
 
 

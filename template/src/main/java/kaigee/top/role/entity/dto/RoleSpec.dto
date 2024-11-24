@@ -8,12 +8,12 @@ specification RoleSpecSpec {
     #allScalars
     like/i(getName)
     like/i(getId)
-    ge(getMaxEditedTime)
-    le(getMaxEditedTime)
-    ge(getMinCreatedTime)
-    le(getMinCreatedTime)
     ge(getMaxCreatedTime)
     le(getMaxCreatedTime)
+    ge(getMaxEditedTime)
+    le(getMaxEditedTime)
     ge(getMinEditedTime)
     le(getMinEditedTime)
+    ge(getMinCreatedTime)
+    le(getMinCreatedTime)
 }

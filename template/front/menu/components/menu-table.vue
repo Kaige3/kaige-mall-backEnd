@@ -101,6 +101,11 @@
                     {{row.orderNum}}
         </template>
     </el-table-column>
+    <el-table-column label="菜单类型" prop="menuType" sortable="custom">
+        <template v-slot:default="{row}:MenuScope">
+                    <dict-column :dict-id="DictConstants.MENU_TYPE" :value="row.menuType"></dict-column>
+        </template>
+    </el-table-column>
     <el-table-column label="图标" prop="icon" sortable="custom">
         <template v-slot:default="{row}:MenuScope">
                     <el-avatar :src="row.icon" alt=""></el-avatar>

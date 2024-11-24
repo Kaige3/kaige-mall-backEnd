@@ -6,13 +6,13 @@ input DictInput {
 
 specification DictSpec {
     #allScalars
-    like/i(keyName)
     like/i(dictEnName)
     like/i(dictName)
     like/i(keyEnName)
+    like/i(keyName)
     like/i(id)
-    ge(editedTime)
-    le(editedTime)
     ge(createdTime)
     le(createdTime)
+    ge(editedTime)
+    le(editedTime)
 }
